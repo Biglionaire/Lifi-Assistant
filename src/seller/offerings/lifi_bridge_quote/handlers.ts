@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { parseAgentCommand } from "../_shared/command.js";
-import { getChainId, getToken, getQuote, parseUnitsDecimal } from "../_shared/lifi.js";
+import { chainIdOf } from "../_shared/chains.js";
+import { parseUnitsDecimal } from "../_shared/amount.js";
+import { getToken, getQuote } from "../_shared/lifi.js";
 
 export async function validateRequirements(requirements: any) {
   try {
@@ -18,7 +20,8 @@ export async function executeJob(requirements: any) {
   const parsed = parseAgentCommand(requirements.command);
 
   if (parsed.kind === "swap") {
-    const chainId = await getChainId(parsed.chain);
+    const chainId = chainIdOf(parsed.chain);
+    if (!chainId) throw new Error(`Unsupported chain: ${parsed.chain}`);
     const fromTok = await getToken(chainId, parsed.tokenIn);
     const toTok = await getToken(chainId, parsed.tokenOut);
 
@@ -56,8 +59,10 @@ export async function executeJob(requirements: any) {
   }
 
   // bridge
-  const fromChainId = await getChainId(parsed.fromChain);
-  const toChainId = await getChainId(parsed.toChain);
+  const fromChainId = chainIdOf(parsed.fromChain);
+  const toChainId = chainIdOf(parsed.toChain);
+  if (!fromChainId) throw new Error(`Unsupported fromChain: ${parsed.fromChain}`);
+  if (!toChainId) throw new Error(`Unsupported toChain: ${parsed.toChain}`);
 
   const fromTok = await getToken(fromChainId, parsed.tokenIn);
   const toTok = await getToken(toChainId, parsed.tokenOut);

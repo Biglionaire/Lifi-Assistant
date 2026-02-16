@@ -40,3 +40,57 @@ export function parseBridgeCommand(text: string): BridgeRequest {
   if (!receiver) throw new Error("Missing receiver. Example: ... receiver 0xabc...");
   return { amount, token, fromChain, toChain, receiver, sender, toToken, slippage };
 }
+
+// --- Agent command (bridge OR swap) used by lifi_bridge_quote ---
+
+export type AgentCommand =
+  | { kind: "swap"; chain: string; tokenIn: string; tokenOut: string; amount: string; receiver: string; sender?: string; slippage?: number; order?: string }
+  | { kind: "bridge"; fromChain: string; toChain: string; tokenIn: string; tokenOut: string; amount: string; receiver: string; sender?: string; slippage?: number; order?: string };
+
+export function parseAgentCommand(text: string): AgentCommand {
+  const input = (text ?? "").trim();
+
+  // Try bridge first
+  if (/^bridge\s/i.test(input)) {
+    const br = parseBridgeCommand(input);
+    return {
+      kind: "bridge",
+      fromChain: br.fromChain,
+      toChain: br.toChain,
+      tokenIn: br.token,
+      tokenOut: br.toToken ?? br.token,
+      amount: br.amount,
+      receiver: br.receiver,
+      sender: br.sender,
+      slippage: br.slippage,
+    };
+  }
+
+  // swap <amount> <tokenIn> to <tokenOut> on <chain> receiver <0x...> [sender <0x...>] [slippage <n>] [order <CHEAPEST|FASTEST>]
+  const swapRe =
+    /^swap\s+(?<amount>\d+(?:\.\d+)?)\s+(?<tokenIn>[A-Za-z0-9:_\.\-]+)\s+to\s+(?<tokenOut>[A-Za-z0-9:_\.\-]+)\s+on\s+(?<chain>[A-Za-z0-9_\-]+)(?:\s+receiver(?:\s+address)?\s+(?<receiver>0x[a-fA-F0-9]{40}))?(?:\s+sender\s+(?<sender>0x[a-fA-F0-9]{40}))?(?:\s+slippage\s+(?<slippage>\d+(?:\.\d+)?))?(?:\s+order\s+(?<order>[A-Za-z]+))?\s*$/i;
+
+  const m = input.match(swapRe);
+  if (!m?.groups) {
+    throw new Error(
+      "Unrecognized command. Examples:\n" +
+      "  bridge 5 USDC from base to arbitrum receiver 0x...\n" +
+      "  swap 5 USDC to ETH on base receiver 0x..."
+    );
+  }
+
+  const g = m.groups;
+  if (!g.receiver) throw new Error("Missing receiver. Example: swap 5 USDC to ETH on base receiver 0x...");
+
+  return {
+    kind: "swap",
+    chain: g.chain,
+    tokenIn: g.tokenIn,
+    tokenOut: g.tokenOut,
+    amount: g.amount,
+    receiver: g.receiver,
+    sender: g.sender || undefined,
+    slippage: g.slippage ? Number(g.slippage) : undefined,
+    order: g.order || undefined,
+  };
+}
