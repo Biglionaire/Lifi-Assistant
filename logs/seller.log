@@ -1,0 +1,1022 @@
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] Disconnected: ping timeout
+[socket] Connection error: websocket error
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001935512  phase=0
+
+============================================================
+[seller] New task  jobId=1001935512  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0.2
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001935512  accept=true  reason=Job accepted
+[seller] Job 1001935512 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001935512  phase=2
+
+============================================================
+[seller] New task  jobId=1001935512  phase=TRANSACTION
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0.2
+         context=null
+============================================================
+[seller] Executing offering "lifi_bridge" for job 1001935512 (TRANSACTION phase)...
+[seller] Error delivering job 1001935512: <ref *1> AxiosError: timeout of 30000ms exceeded
+    at RedirectableRequest.handleRequestTimeout (file:///root/virtuals-protocol-acp/node_modules/axios/lib/adapters/http.js:857:15)
+    at RedirectableRequest.emit (node:events:517:28)
+    at Timeout._onTimeout (/root/virtuals-protocol-acp/node_modules/follow-redirects/index.js:221:12)
+    at listOnTimeout (node:internal/timers:569:17)
+    at process.processTimers (node:internal/timers:512:7)
+    at Axios.request (file:///root/virtuals-protocol-acp/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at getToken (/root/virtuals-protocol-acp/src/seller/offerings/_shared/lifi.ts:23:13)
+    at Module.executeJob (/root/virtuals-protocol-acp/src/seller/offerings/lifi_bridge/handlers.ts:67:23)
+    at handleNewTask (/root/virtuals-protocol-acp/src/seller/runtime/seller.ts:196:42) {
+  isAxiosError: true,
+  code: 'ECONNABORTED',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': undefined,
+      'x-lifi-api-key': '1787ca8f-b2dd-487d-a0c5-15f31fdfacaf.b929d0e0-c60a-4bd7-8feb-668cd7d722b9',
+      'User-Agent': 'axios/1.13.4',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    params: { chain: '42161', token: 'USDC' },
+    method: 'get',
+    url: 'https://li.quest/v1/token',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *2> Writable {
+    _writableState: WritableState {
+      objectMode: false,
+      highWaterMark: 16384,
+      finalCalled: false,
+      needDrain: false,
+      ending: false,
+      ended: false,
+      finished: false,
+      destroyed: true,
+      decodeStrings: true,
+      defaultEncoding: 'utf8',
+      length: 0,
+      writing: false,
+      corked: 0,
+      sync: true,
+      bufferProcessing: false,
+      onwrite: [Function: bound onwrite],
+      writecb: null,
+      writelen: 0,
+      afterWriteTickInfo: null,
+      buffered: [],
+      bufferedIndex: 0,
+      allBuffers: true,
+      allNoop: true,
+      pendingcb: 0,
+      constructed: true,
+      prefinished: false,
+      errorEmitted: true,
+      emitClose: true,
+      autoDestroy: true,
+      errored: [Circular *1],
+      closed: true,
+      closeEmitted: true,
+      [Symbol(kOnFinished)]: []
+    },
+    _events: [Object: null prototype] {
+      response: [Function: handleResponse],
+      error: [Function: handleRequestError],
+      socket: [Array]
+    },
+    _eventsCount: 3,
+    _maxListeners: undefined,
+    _options: {
+      maxRedirects: 21,
+      maxBodyLength: Infinity,
+      protocol: 'https:',
+      path: '/v1/token?chain=42161&token=USDC',
+      method: 'GET',
+      headers: [Object: null prototype],
+      agents: [Object],
+      auth: undefined,
+      family: undefined,
+      beforeRedirect: [Function: dispatchBeforeRedirect],
+      beforeRedirects: [Object],
+      http2Options: undefined,
+      hostname: 'li.quest',
+      port: '',
+      agent: undefined,
+      nativeProtocols: [Object],
+      pathname: '/v1/token',
+      search: '?chain=42161&token=USDC'
+    },
+    _ended: true,
+    _ending: true,
+    _redirectCount: 0,
+    _redirects: [],
+    _requestBodyLength: 0,
+    _requestBodyBuffers: [],
+    _onNativeResponse: [Function (anonymous)],
+    _currentRequest: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'GET /v1/token?chain=42161&token=USDC HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'x-lifi-api-key: 1787ca8f-b2dd-487d-a0c5-15f31fdfacaf.b929d0e0-c60a-4bd7-8feb-668cd7d722b9\r\n' +
+        'User-Agent: axios/1.13.4\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: li.quest\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/v1/token?chain=42161&token=USDC',
+      _ended: false,
+      res: null,
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'li.quest',
+      protocol: 'https:',
+      _redirectable: [Circular *2],
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null,
+      [Symbol(kError)]: [Circular *1]
+    },
+    _currentUrl: 'https://li.quest/v1/token?chain=42161&token=USDC',
+    _timeout: null,
+    [Symbol(kCapture)]: false
+  }
+}
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001936006  phase=0
+
+============================================================
+[seller] New task  jobId=1001936006  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0.2
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001936006  accept=true  reason=Job accepted
+[seller] Job 1001936006 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001936006  phase=2
+
+============================================================
+[seller] New task  jobId=1001936006  phase=TRANSACTION
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0.2
+         context=null
+============================================================
+[seller] Executing offering "lifi_bridge" for job 1001936006 (TRANSACTION phase)...
+[sellerApi] deliverJob  jobId=1001936006  deliverable={
+  "input": {
+    "amountHuman": "5",
+    "fromChain": "base",
+    "toChain": "arbitrum",
+    "sender": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+    "receiver": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+    "token": "USDC",
+    "toToken": "USDC"
+  },
+  "resolved": {
+    "fromChainId": 8453,
+    "toChainId": 42161,
+    "fromToken": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "chainId": 8453,
+      "symbol": "USDC",
+      "decimals": 6,
+      "name": "USD Coin",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+      "priceUSD": "0.999901",
+      "marketCapUSD": 73683996588,
+      "volumeUSD24H": 3679188405,
+      "tags": [
+        "stablecoin"
+      ]
+    },
+    "toToken": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "chainId": 42161,
+      "symbol": "USDC",
+      "decimals": 6,
+      "name": "USD Coin",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+      "priceUSD": "0.999901",
+      "marketCapUSD": 73683996588,
+      "volumeUSD24H": 3679188405,
+      "tags": [
+        "stablecoin"
+      ]
+    },
+    "fromAmount": "5000000"
+  },
+  "quote": {
+    "type": "lifi",
+    "id": "ccbb5350-2d38-4ce1-b2c4-df36cd82c380:0",
+    "tool": "polymerStandard",
+    "toolDetails": {
+      "key": "polymerStandard",
+      "name": "Polymer (Standard)",
+      "logoURI": "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/bridges/polymer.svg"
+    },
+    "action": {
+      "fromToken": {
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "chainId": 8453,
+        "symbol": "USDC",
+        "decimals": 6,
+        "name": "USD Coin",
+        "coinKey": "USDC",
+        "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+        "priceUSD": "0.999901",
+        "tags": [
+          "stablecoin"
+        ]
+      },
+      "fromAmount": "5000000",
+      "toToken": {
+        "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "chainId": 42161,
+        "symbol": "USDC",
+        "decimals": 6,
+        "name": "USD Coin",
+        "coinKey": "USDC",
+        "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+        "priceUSD": "0.999901",
+        "tags": [
+          "stablecoin"
+        ]
+      },
+      "fromChainId": 8453,
+      "toChainId": 42161,
+      "slippage": 0.001,
+      "fromAddress": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+      "toAddress": "0x34AdDbb679223315B8a5eAF80981E648cD394F71"
+    },
+    "estimate": {
+      "tool": "polymerStandard",
+      "approvalAddress": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+      "toAmountMin": "4987500",
+      "toAmount": "4987500",
+      "fromAmount": "5000000",
+      "feeCosts": [
+        {
+          "name": "LIFI Fixed Fee",
+          "description": "Fixed LIFI fee, independent of any other fee",
+          "token": {
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "chainId": 8453,
+            "symbol": "USDC",
+            "decimals": 6,
+            "name": "USD Coin",
+            "coinKey": "USDC",
+            "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+            "priceUSD": "0.999901",
+            "tags": [
+              "stablecoin"
+            ]
+          },
+          "amount": "12500",
+          "amountUSD": "0.0125",
+          "percentage": "0.0025",
+          "included": true,
+          "feeSplit": {
+            "integratorFee": "0",
+            "lifiFee": "12500"
+          }
+        }
+      ],
+      "gasCosts": [
+        {
+          "type": "SEND",
+          "price": "2404334",
+          "estimate": "773000",
+          "limit": "1404900",
+          "amount": "1858550182000",
+          "amountUSD": "0.0037",
+          "token": {
+            "address": "0x0000000000000000000000000000000000000000",
+            "chainId": 8453,
+            "symbol": "ETH",
+            "decimals": 18,
+            "name": "ETH",
+            "coinKey": "ETH",
+            "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
+            "priceUSD": "1964.43",
+            "tags": []
+          }
+        }
+      ],
+      "executionDuration": 1080,
+      "fromAmountUSD": "4.9995",
+      "toAmountUSD": "4.9870"
+    },
+    "includedSteps": [
+      {
+        "id": "cef0f21f-6966-4f03-889e-731bbcc2e039",
+        "type": "protocol",
+        "action": {
+          "fromChainId": 8453,
+          "fromAmount": "5000000",
+          "fromToken": {
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "chainId": 8453,
+            "symbol": "USDC",
+            "decimals": 6,
+            "name": "USD Coin",
+            "coinKey": "USDC",
+            "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+            "priceUSD": "0.999901",
+            "tags": [
+              "stablecoin"
+            ]
+          },
+          "toChainId": 8453,
+          "toToken": {
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "chainId": 8453,
+            "symbol": "USDC",
+            "decimals": 6,
+            "name": "USD Coin",
+            "coinKey": "USDC",
+            "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+            "priceUSD": "0.999901",
+            "tags": [
+              "stablecoin"
+            ]
+          },
+          "slippage": 0.001,
+          "fromAddress": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "toAddress": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "jitoBundle": false
+        },
+        "estimate": {
+          "fromAmount": "5000000",
+          "toAmount": "4987500",
+          "toAmountMin": "4987500",
+          "tool": "feeCollection",
+          "approvalAddress": "0x0A6d96E7f4D7b96CFE42185DF61E64d255c12DFf",
+          "gasCosts": [
+            {
+              "type": "SEND",
+              "price": "2404334",
+              "estimate": "130000",
+              "limit": "569000",
+              "amount": "312563420000",
+              "amountUSD": "0.0006",
+              "token": {
+                "address": "0x0000000000000000000000000000000000000000",
+                "chainId": 8453,
+                "symbol": "ETH",
+                "decimals": 18,
+                "name": "ETH",
+                "coinKey": "ETH",
+                "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
+                "priceUSD": "1964.43",
+                "tags": []
+              }
+            }
+          ],
+          "feeCosts": [
+            {
+              "name": "LIFI Fixed Fee",
+              "description": "Fixed LIFI fee, independent of any other fee",
+              "token": {
+                "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                "chainId": 8453,
+                "symbol": "USDC",
+                "decimals": 6,
+                "name": "USD Coin",
+                "coinKey": "USDC",
+                "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+                "priceUSD": "0.999901",
+                "tags": [
+                  "stablecoin"
+                ]
+              },
+              "amount": "12500",
+              "amountUSD": "0.0125",
+              "percentage": "0.0025",
+              "included": true,
+              "feeSplit": {
+                "integratorFee": "0",
+                "lifiFee": "12500"
+              }
+            }
+          ],
+          "executionDuration": 0
+        },
+        "tool": "feeCollection",
+        "toolDetails": {
+          "key": "feeCollection",
+          "name": "Integrator Fee",
+          "logoURI": "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/protocols/feeCollection.svg"
+        }
+      },
+      {
+        "id": "eaa042a9-f53a-4795-862b-1b3d03e52946",
+        "type": "cross",
+        "action": {
+          "fromChainId": 8453,
+          "fromAmount": "4987500",
+          "fromToken": {
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "chainId": 8453,
+            "symbol": "USDC",
+            "decimals": 6,
+            "name": "USD Coin",
+            "coinKey": "USDC",
+            "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+            "priceUSD": "0.999901",
+            "tags": [
+              "stablecoin"
+            ]
+          },
+          "toChainId": 42161,
+          "toToken": {
+            "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+            "chainId": 42161,
+            "symbol": "USDC",
+            "decimals": 6,
+            "name": "USD Coin",
+            "coinKey": "USDC",
+            "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+            "priceUSD": "0.999901",
+            "tags": [
+              "stablecoin"
+            ]
+          },
+          "slippage": 0.001,
+          "fromAddress": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "toAddress": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+          "jitoBundle": false,
+          "destinationGasConsumption": "0"
+        },
+        "estimate": {
+          "tool": "polymerStandard",
+          "fromAmount": "4987500",
+          "toAmount": "4987500",
+          "toAmountMin": "4987500",
+          "gasCosts": [
+            {
+              "type": "SEND",
+              "price": "2404334",
+              "estimate": "400000",
+              "limit": "920000",
+              "amount": "961733600000",
+              "amountUSD": "0.0019",
+              "token": {
+                "address": "0x0000000000000000000000000000000000000000",
+                "chainId": 8453,
+                "symbol": "ETH",
+                "decimals": 18,
+                "name": "ETH",
+                "coinKey": "ETH",
+                "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
+                "priceUSD": "1964.43",
+                "tags": []
+              }
+            }
+          ],
+          "executionDuration": 1080,
+          "approvalAddress": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "feeCosts": []
+        },
+        "tool": "polymerStandard",
+        "toolDetails": {
+          "key": "polymerStandard",
+          "name": "Polymer (Standard)",
+          "logoURI": "https://raw.githubusercontent.com/lifinance/types/main/src/assets/icons/bridges/polymer.svg"
+        }
+      }
+    ],
+    "integrator": "lifi-api",
+    "transactionRequest": {
+      "value": "0x0",
+      "to": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+      "data": "0x4019dcea00000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007d03924eead4866c22b38df1c877035a2f513bd877401c4ac6020b314274040b478000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000034addbb679223315b8a5eaf80981e648cd394f7100000000000000000000000000000000000000000000000000000000004c1a6c000000000000000000000000000000000000000000000000000000000000a4b100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f706f6c796d65725374616e64617264000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000086c6966692d617069000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff0000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000004c4b4000000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000084eedd56e1000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030d4000000000000000000000000b9c0de368bece5e76b52545a8e377a4c118f597b00000000000000000000000000000000000000000000000000000000",
+      "from": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+      "chainId": 8453,
+      "gasPrice": "0x24afee",
+      "gasLimit": "0x156fe4"
+    },
+    "transactionId": "0x3924eead4866c22b38df1c877035a2f513bd877401c4ac6020b314274040b478"
+  },
+  "notes": [
+    "LI.FI quote includes transactionRequest ready to sign & send.",
+    "If fromToken is ERC20, you may need to approve the spender (see quote.estimate.approvalAddress / approvals workflow)."
+  ]
+}
+[seller] Job 1001936006 — delivered.
+[socket] Disconnected: ping timeout
+[socket] Connected to ACP
+[socket] Joined ACP room
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001938121  phase=0
+
+============================================================
+[seller] New task  jobId=1001938121  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001938121  accept=true  reason=Job accepted
+[seller] Job 1001938121 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001938121  phase=2
+
+============================================================
+[seller] New task  jobId=1001938121  phase=TRANSACTION
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[seller] Executing offering "lifi_bridge_executor" for job 1001938121 (TRANSACTION phase)...
+[sellerApi] deliverJob  jobId=1001938121  deliverable={"type":"lifi_bridge_executor_result","value":{"status":"broadcasted","fromChainId":8453,"toChainId":42161,"fromToken":{"chainId":8453,"address":"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913","symbol":"USDC","name":"USD Coin","decimals":6,"priceUSD":"0.99991","coinKey":"USDC","logoURI":"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"},"toToken":{"chainId":42161,"address":"0xaf88d065e77c8cC2239327C5EDb3A432268e5831","symbol":"USDC","name":"USD Coin","decimals":6,"priceUSD":"0.99991","coinKey":"USDC","logoURI":"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"},"fromAmount":"5000000","receiver":"0x34AdDbb679223315B8a5eAF80981E648cD394F71","lifi":{"quoteId":"af57fd42-439e-4378-983e-f0d34f642452:0","tool":"polymerStandard","approvalAddress":"0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE","transactionId":"0xeaf24cc67694821556fe4b00d902f0b661f5f2251bc6001ba2073e66cf5fbd2e"},"tx":{"hash":"0x9485d37011071c0d5ea2a395e8d392d221a1db320cd336e3e64a218d614b542a","blockNumber":"42221272","status":"reverted"},"notes":["Buyer funds masuk via ACP (requestAdditionalFunds).","Bridge dieksekusi lewat txRequest dari LI.FI."]}}
+[seller] Job 1001938121 — delivered.
+[socket] Disconnected: ping timeout
+[socket] Connected to ACP
+[socket] Joined ACP room
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001938781  phase=0
+
+============================================================
+[seller] New task  jobId=1001938781  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001938781  accept=true  reason=Job accepted
+[seller] Job 1001938781 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001938781  phase=2
+
+============================================================
+[seller] New task  jobId=1001938781  phase=TRANSACTION
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[seller] Executing offering "lifi_bridge_executor" for job 1001938781 (TRANSACTION phase)...
+[seller] Error delivering job 1001938781: EstimateGasExecutionError: Execution reverted for an unknown reason.
+
+Estimate Gas Arguments:
+  from:   0xee3500d6502e98E27613424995e0255A0f976a2A
+  to:     0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE
+  value:  0 ETH
+  data:   0x4019dcea00000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007d032d411991558a9f3a940c73b4ba95ef4dfc8e8fc42beddc7c19874574e86d96b000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000034addbb679223315b8a5eaf80981e648cd394f7100000000000000000000000000000000000000000000000000000000004c1a6c000000000000000000000000000000000000000000000000000000000000a4b100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f706f6c796d65725374616e64617264000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000086c6966692d617069000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff0000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000004c4b4000000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000084eedd56e1000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030d4000000000000000000000000b9c0de368bece5e76b52545a8e377a4c118f597b00000000000000000000000000000000000000000000000000000000
+
+Details: execution reverted
+Version: viem@2.46.1
+    at getEstimateGasError (/root/virtuals-protocol-acp/node_modules/viem/utils/errors/getEstimateGasError.ts:42:10)
+    at estimateGas (/root/virtuals-protocol-acp/node_modules/viem/actions/public/estimateGas.ts:223:11)
+    ... 2 lines matching cause stack trace ...
+    at handleNewTask (/root/virtuals-protocol-acp/src/seller/runtime/seller.ts:197:42) {
+  cause: ExecutionRevertedError: Execution reverted for an unknown reason.
+  
+  Details: execution reverted
+  Version: viem@2.46.1
+      at getNodeError (/root/virtuals-protocol-acp/node_modules/viem/utils/errors/getNodeError.ts:77:12)
+      at <anonymous> (/root/virtuals-protocol-acp/node_modules/viem/utils/errors/getEstimateGasError.ts:35:19)
+      at getEstimateGasError (/root/virtuals-protocol-acp/node_modules/viem/utils/errors/getEstimateGasError.ts:41:5)
+      at estimateGas (/root/virtuals-protocol-acp/node_modules/viem/actions/public/estimateGas.ts:223:11)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at Module.executeJob (/root/virtuals-protocol-acp/src/seller/offerings/lifi_bridge_executor/handlers.ts:320:3)
+      at handleNewTask (/root/virtuals-protocol-acp/src/seller/runtime/seller.ts:197:42) {
+    details: 'execution reverted',
+    docsPath: undefined,
+    metaMessages: undefined,
+    shortMessage: 'Execution reverted for an unknown reason.',
+    version: '2.46.1',
+    [cause]: RpcRequestError: RPC Request failed.
+    
+    URL: https://mainnet.base.org
+    Request body: {"method":"eth_estimateGas","params":[{"data":"0x4019dcea00000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007d032d411991558a9f3a940c73b4ba95ef4dfc8e8fc42beddc7c19874574e86d96b000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000034addbb679223315b8a5eaf80981e648cd394f7100000000000000000000000000000000000000000000000000000000004c1a6c000000000000000000000000000000000000000000000000000000000000a4b100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f706f6c796d65725374616e64617264000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000086c6966692d617069000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff0000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000004c4b4000000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000084eedd56e1000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030d4000000000000000000000000b9c0de368bece5e76b52545a8e377a4c118f597b00000000000000000000000000000000000000000000000000000000","from":"0xee3500d6502e98E27613424995e0255A0f976a2A","to":"0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE","value":"0x0"}]}
+    
+    Details: execution reverted
+    Version: viem@2.46.1
+        at request (/root/virtuals-protocol-acp/node_modules/viem/clients/transports/http.ts:157:19)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+        at withRetry.delay.count.count (/root/virtuals-protocol-acp/node_modules/viem/utils/buildRequest.ts:153:22)
+        at attemptRetry (/root/virtuals-protocol-acp/node_modules/viem/utils/promise/withRetry.ts:44:22) {
+      details: 'execution reverted',
+      docsPath: undefined,
+      metaMessages: [Array],
+      shortMessage: 'RPC Request failed.',
+      version: '2.46.1',
+      code: 3,
+      data: '0x7939f424',
+      url: 'https://mainnet.base.org',
+      [cause]: [Object]
+    }
+  },
+  details: 'execution reverted',
+  docsPath: undefined,
+  metaMessages: [
+    'Estimate Gas Arguments:',
+    '  from:   0xee3500d6502e98E27613424995e0255A0f976a2A\n' +
+      '  to:     0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE\n' +
+      '  value:  0 ETH\n' +
+      '  data:   0x4019dcea00000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000000000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007d032d411991558a9f3a940c73b4ba95ef4dfc8e8fc42beddc7c19874574e86d96b000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000034addbb679223315b8a5eaf80981e648cd394f7100000000000000000000000000000000000000000000000000000000004c1a6c000000000000000000000000000000000000000000000000000000000000a4b100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f706f6c796d65725374616e64617264000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000086c6966692d617069000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff0000000000000000000000000a6d96e7f4d7b96cfe42185df61e64d255c12dff000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000004c4b4000000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000084eedd56e1000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030d4000000000000000000000000b9c0de368bece5e76b52545a8e377a4c118f597b00000000000000000000000000000000000000000000000000000000'
+  ],
+  shortMessage: 'Execution reverted for an unknown reason.',
+  version: '2.46.1'
+}
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001939112  phase=0
+
+============================================================
+[seller] New task  jobId=1001939112  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001939112  accept=true  reason=Job accepted
+[seller] Job 1001939112 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001939112  phase=2
+
+============================================================
+[seller] New task  jobId=1001939112  phase=TRANSACTION
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[seller] Executing offering "lifi_bridge_executor" for job 1001939112 (TRANSACTION phase)...
+[sellerApi] deliverJob  jobId=1001939112  deliverable={
+  "ok": true,
+  "mode": "executed",
+  "executor": "0xee3500d6502e98E27613424995e0255A0f976a2A",
+  "input": {
+    "amountHuman": "5",
+    "token": "USDC",
+    "fromChain": "base",
+    "toChain": "arbitrum",
+    "receiver": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+    "dryRun": false
+  },
+  "resolved": {
+    "fromChainId": 8453,
+    "toChainId": 42161,
+    "fromToken": {
+      "chainId": 8453,
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "priceUSD": "0.99991",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    "toToken": {
+      "chainId": 42161,
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "priceUSD": "0.99991",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    "fromAmount": "5000000",
+    "slippage": 0.005
+  },
+  "approvals": {
+    "approvalReset": false,
+    "spenders": [
+      "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae",
+      "0x0a6d96e7f4d7b96cfe42185df61e64d255c12dff"
+    ],
+    "allowanceReport": {
+      "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae": "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+      "0x0a6d96e7f4d7b96cfe42185df61e64d255c12dff": "0"
+    },
+    "approveTxs": [
+      "0xa2ea23478a29baa1818332b8638074f9eba63cc92a092ea614196295649a8e90"
+    ]
+  },
+  "lifi": {
+    "tool": "polymerStandard",
+    "quoteId": "1af05e9a-1fe4-4c31-b8f4-7873fae9dbce:0"
+  },
+  "tx": {
+    "hash": "0xf1f6178c695b647d44300c2f0f9cc9f3c32c4f8b4d45f3b0a6b235d969c5f4a3",
+    "status": "success",
+    "blockNumber": "42222106"
+  },
+  "status": null
+}
+[seller] Job 1001939112 — delivered.
+[socket] Disconnected: ping timeout
+[socket] Connection error: timeout
+[socket] Connection error: timeout
+[socket] Connection error: websocket error
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001939527  phase=0
+
+============================================================
+[seller] New task  jobId=1001939527  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001939527  accept=true  reason=Job accepted
+[seller] Job 1001939527 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001939527  phase=2
+
+============================================================
+[seller] New task  jobId=1001939527  phase=TRANSACTION
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[seller] Executing offering "lifi_bridge_executor" for job 1001939527 (TRANSACTION phase)...
+[sellerApi] deliverJob  jobId=1001939527  deliverable={
+  "ok": true,
+  "mode": "executed",
+  "executor": "0xee3500d6502e98E27613424995e0255A0f976a2A",
+  "input": {
+    "amountHuman": "1",
+    "token": "USDC",
+    "fromChain": "base",
+    "toChain": "bsc",
+    "receiver": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+    "dryRun": false
+  },
+  "resolved": {
+    "fromChainId": 8453,
+    "toChainId": 56,
+    "fromToken": {
+      "chainId": 8453,
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "priceUSD": "0.99991",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    "toToken": {
+      "chainId": 56,
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 18,
+      "priceUSD": "0.999909",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    "fromAmount": "1000000",
+    "slippage": 0.005
+  },
+  "approvals": {
+    "approvalReset": false,
+    "spenders": [
+      "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae",
+      "0x0a6d96e7f4d7b96cfe42185df61e64d255c12dff",
+      "0x09aea4b2242abc8bb4bb78d537a67a245a7bec64"
+    ],
+    "allowanceReport": {
+      "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae": "115792089237316195423570985008687907853269984665640564039457584007913124639935",
+      "0x0a6d96e7f4d7b96cfe42185df61e64d255c12dff": "5000000",
+      "0x09aea4b2242abc8bb4bb78d537a67a245a7bec64": "0"
+    },
+    "approveTxs": [
+      "0x047bd95228c533de80540f5155e927d651905ab0822f7151cc7dd50f38e2b009"
+    ]
+  },
+  "lifi": {
+    "tool": "across",
+    "quoteId": "f4818782-53be-4c36-805b-b5996736e9b4:0"
+  },
+  "tx": {
+    "hash": "0x69081913f5328f0275c979d4dc46d57d0aa4d66258a58f63825fa721446403d4",
+    "status": "success",
+    "blockNumber": "42222426"
+  },
+  "status": null
+}
+[seller] Job 1001939527 — delivered.
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001940394  phase=0
+
+============================================================
+[seller] New task  jobId=1001940394  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001940394  accept=true  reason=Job accepted
+[seller] Job 1001940394 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001940394  phase=2
+
+============================================================
+[seller] New task  jobId=1001940394  phase=TRANSACTION
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[seller] Executing offering "lifi_bridge_executor" for job 1001940394 (TRANSACTION phase)...
+[sellerApi] deliverJob  jobId=1001940394  deliverable={
+  "ok": true,
+  "mode": "executed",
+  "executor": "0xee3500d6502e98E27613424995e0255A0f976a2A",
+  "input": {
+    "amountHuman": "1",
+    "token": "USDC",
+    "fromChain": "base",
+    "toChain": "bsc",
+    "receiver": "0x34AdDbb679223315B8a5eAF80981E648cD394F71",
+    "dryRun": false
+  },
+  "resolved": {
+    "fromChainId": 8453,
+    "toChainId": 56,
+    "fromToken": {
+      "chainId": 8453,
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 6,
+      "priceUSD": "0.99991",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    "toToken": {
+      "chainId": 56,
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "decimals": 18,
+      "priceUSD": "0.999909",
+      "coinKey": "USDC",
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    "fromAmount": "1000000",
+    "slippage": 0.005
+  },
+  "approvals": {
+    "approvalReset": false,
+    "spenders": [
+      "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae",
+      "0x0a6d96e7f4d7b96cfe42185df61e64d255c12dff",
+      "0x09aea4b2242abc8bb4bb78d537a67a245a7bec64"
+    ],
+    "allowanceReport": {
+      "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae": "115792089237316195423570985008687907853269984665640564039457584007913123639935",
+      "0x0a6d96e7f4d7b96cfe42185df61e64d255c12dff": "5000000",
+      "0x09aea4b2242abc8bb4bb78d537a67a245a7bec64": "1000000"
+    },
+    "approveTxs": []
+  },
+  "lifi": {
+    "tool": "across",
+    "quoteId": "b9f92857-f6ac-4ce1-837b-0365822ca285:0"
+  },
+  "tx": {
+    "hash": "0xd958cc1f15a22d2bd6362853b2483f2de860a5569d35c33dfc7d993181aba7a5",
+    "status": "success",
+    "blockNumber": "42223113"
+  },
+  "status": null
+}
+[seller] Job 1001940394 — delivered.
+[socket] Disconnected: ping timeout
+[socket] Connection error: websocket error
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] Disconnected: ping timeout
+[socket] Connection error: websocket error
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] Disconnected: ping timeout
+[socket] Connection error: websocket error
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] Disconnected: transport close
+[socket] Connected to ACP
+[socket] Joined ACP room
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001943507  phase=0
+
+============================================================
+[seller] New task  jobId=1001943507  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001943507  accept=true  reason=Job accepted
+[seller] Error processing job 1001943507: Error: {"message":["payableDetail.amount should not be empty","payableDetail.tokenAddress should not be empty","payableDetail.tokenAddress must be a string","payableDetail.recipient should not be empty","payableDetail.recipient must be a string"],"error":"Bad Request","statusCode":400}
+    at <anonymous> (/root/virtuals-protocol-acp/src/lib/client.ts:25:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Axios.request (file:///root/virtuals-protocol-acp/node_modules/axios/lib/core/Axios.js:41:14)
+    at requestPayment (/root/virtuals-protocol-acp/src/seller/runtime/sellerApi.ts:42:3)
+    at handleNewTask (/root/virtuals-protocol-acp/src/seller/runtime/seller.ts:171:7)
+[seller] Job 1001943507 in phase REQUEST — no action needed
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001944022  phase=0
+
+============================================================
+[seller] New task  jobId=1001944022  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[seller] Validation failed for offering "lifi_bridge_executor" — rejecting: Validation failed
+[sellerApi] acceptOrRejectJob  jobId=1001944022  accept=false  reason=Validation failed
+[seller] Available offerings: _shared, lifi_bridge, lifi_bridge_executor, lifi_bridge_quote
+[seller] Seller runtime is running. Waiting for jobs...
+
+[socket] Connected to ACP
+[socket] Joined ACP room
+[socket] onNewTask  jobId=1001944474  phase=0
+
+============================================================
+[seller] New task  jobId=1001944474  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001944474  accept=true  reason=Job accepted
+[seller] Job 1001944474 in phase REQUEST — no action needed
+[socket] onNewTask  jobId=1001944526  phase=0
+
+============================================================
+[seller] New task  jobId=1001944526  phase=REQUEST
+         client=0x34AdDbb679223315B8a5eAF80981E648cD394F71  price=0
+         context=null
+============================================================
+[sellerApi] acceptOrRejectJob  jobId=1001944526  accept=true  reason=Job accepted
+[seller] Job 1001944526 in phase REQUEST — no action needed

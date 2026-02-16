@@ -1,0 +1,39 @@
+{
+  "name": "lifi_bridge_executor",
+  "description": "Seller-executed swap/bridge via LI.FI. Buyer transfers FROM token on Base to the executor wallet first (requiredFunds=true), then executor broadcasts the LI.FI transaction to bridge/swap to the receiver on destination chain. Example: bridge 5 USDC from base to arbitrum receiver 0x... (optional: toToken ETH, slippage 0.5, dryRun true, allowBridges [\"across\"], allowExchanges [\"uniswap\"]).",
+  "jobFee": 0.003,
+  "jobFeeType": "percentage",
+  "requiredFunds": true,
+  "requirement": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "command": {
+        "type": "string",
+        "description": "Natural command string. Example: bridge 5 USDC from base to arbitrum receiver 0xabc..."
+      },
+
+      "amountHuman": { "type": "string", "description": "Human amount, e.g. \"5\" or \"1.25\"." },
+      "token": { "type": "string", "description": "Source token symbol or address on Base, e.g. USDC or 0x..." },
+      "toToken": { "type": "string", "description": "Destination token symbol or address on destination chain. If omitted, defaults to token." },
+
+      "fromChain": { "type": "string", "description": "Source chain. MVP executor supports Base only. Accepts: base." },
+      "toChain": { "type": "string", "description": "Destination chain. Accepts: ethereum/arbitrum/polygon/bsc." },
+
+      "receiver": { "type": "string", "description": "Destination receiver address." },
+
+      "slippage": { "type": "number", "description": "Slippage in percent, e.g. 0.5 means 0.5%. Default: 0.5." },
+      "dryRun": { "type": "boolean", "description": "If true, returns quote + txRequest but does NOT broadcast." },
+
+      "allowBridges": { "type": "array", "items": { "type": "string" } },
+      "denyBridges": { "type": "array", "items": { "type": "string" } },
+      "preferBridges": { "type": "array", "items": { "type": "string" } },
+
+      "allowExchanges": { "type": "array", "items": { "type": "string" } },
+      "denyExchanges": { "type": "array", "items": { "type": "string" } },
+      "preferExchanges": { "type": "array", "items": { "type": "string" } },
+
+      "order": { "type": "string", "description": "Route preference (depends on LI.FI). Example: CHEAPEST or FASTEST." }
+    }
+  }
+}

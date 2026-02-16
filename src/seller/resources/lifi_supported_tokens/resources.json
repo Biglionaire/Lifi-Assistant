@@ -1,0 +1,8 @@
+{
+  "name": "lifi_supported_tokens",
+  "description": "LI.FI supported tokens for BASE/ETH/ARB/POLYGON/BSC (direct LI.FI proxy resource).",
+  "url": "https://li.quest/v1/tokens",
+  "params": {
+    "chains": "1,56,137,42161,8453"
+  }
+}

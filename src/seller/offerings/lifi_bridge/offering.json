@@ -1,0 +1,26 @@
+{
+  "name": "lifi_bridge",
+  "description": "Generate LI.FI bridge quote + transactionRequest. Example: bridge 5 USDC from base to arbitrum receiver 0x... (optional: sender 0x..., slippage 0.5)",
+  "jobFee": 0.2,
+  "jobFeeType": "fixed",
+  "slaMinutes": 5,
+  "requiredFunds": false,
+  "requirement": {
+    "type": "object",
+    "properties": {
+      "command": {
+        "type": "string",
+        "description": "Example: bridge 5 USDC from base to arbitrum receiver 0x0000000000000000000000000000000000000000"
+      },
+      "amount": { "type": "string" },
+      "token": { "type": "string" },
+      "fromChain": { "type": "string" },
+      "toChain": { "type": "string" },
+      "receiver": { "type": "string" },
+      "sender": { "type": "string" },
+      "toToken": { "type": "string" },
+      "slippage": { "type": "number" }
+    }
+  },
+  "deliverable": "string"
+}
